@@ -9,7 +9,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.before(:each, type: :system) do
-    driven_by :rack_test
+    driven_by :selenium_chrome_headless
   end  
 
   config.before(:each, type: :system, js: true) do 
