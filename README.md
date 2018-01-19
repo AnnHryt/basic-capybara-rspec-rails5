@@ -1,24 +1,24 @@
 # README
+Basic setup to run UI end-to-end tests using capybara and rspec. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Run
+bundle install
 
-Things you may want to cover:
+Run tests
+bundle exec rspec --color --format documentation
 
-* Ruby version
 
-* System dependencies
+Setting 'js: true' will run the test in real Chrome browser, test will run in Headless Chrome if 'js: true' is not set. 
 
-* Configuration
+RSpec.describe "Hello Capybara" do 
+	
+  it "Should see Hello Capybara text on the page in Chrome browser", type: :system, js: true do
+    visit root_path
+    expect(page).to have_text("Hello Capybara!")
+  end
 
-* Database creation
+  it "Should see Hello Capybara text on the page in Headless Chrome", type: :system do
+    visit root_path
+    expect(page).to have_text("Hello Capybara!")
+  end
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
